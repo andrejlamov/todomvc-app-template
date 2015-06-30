@@ -51,9 +51,7 @@ The goal is to bind data elemets to circles in a SVG.
 When the update function is run for the first time, no circles do yet exist in the SVG. 
 
 ```
-var list = [32, 57, 293];
-
-function update() {
+function update(list) {
 
 	var circles = svg.selectAll("circle")
 		.data(list);
@@ -67,6 +65,9 @@ function update() {
 
 	circles.attr("r", function(d) { return Math.sqrt(d); });
 }
+
+update([32, 57, 293]);    // First time we create 3 circles
+update([32, 57, 50, 30]); // Resizes the third circle and adds one more
 
 ```
 
